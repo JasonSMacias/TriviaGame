@@ -31,16 +31,17 @@
       <section class="section">
         <section class="container is-fluid">
           <div class="box has-background-warning">
-            <h2 class="subtitle has-text-centered" id="Question">Guess the trivia question before your time is up!</h2>
+            <h2 class="subtitle has-text-centered" id="Question">Guess the trivia answer based on the clue before your time is up!</h2>
           </div>
           <div class="columns">
             <div class="column">
               <p>
                 <span class="fas fa-question fa-2x"></span>
-                <strong>Question:</strong> <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, perspiciatis id sapiente enim earum commodi amet natus, error odio illum dignissimos?
+                <strong>Clue:</strong> <br />
+                <span id="question">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, perspiciatis id sapiente enim earum commodi amet natus, error odio illum dignissimos?</span>
               </p>
-                
+
+            <!-- answer section with radio buttons -->
             </div>
             <div class="column">
               <span class="fas fa-exclamation fa-2x"></span>
@@ -50,7 +51,7 @@
                 <input type="radio" name="b)" value="female"> b)<br>
                 <input type="radio" name="answer" value="c)"> c)<br>  
                 <input type="radio" value="d)">d)
-                <br>
+                <hr />
                 <input type="submit" value="Submit" class="button is-large is-fullwidth is-warning">
               </form>
 
@@ -64,6 +65,7 @@
     </div>
 </div>
   
-
+<script src="questions.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
