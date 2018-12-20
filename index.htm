@@ -7,6 +7,7 @@
   <title>Trivia Time</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
   <!-- columns container for width of whole page -->
@@ -46,13 +47,18 @@
             <div class="column">
               <span class="fas fa-exclamation fa-2x"></span>
               <strong>Answer:</strong> <br />
-              <form action="/action_page.php">
-                <input type="radio" name="answer" value="a)"> a)<br>
-                <input type="radio" name="b)" value="female"> b)<br>
-                <input type="radio" name="answer" value="c)"> c)<br>  
-                <input type="radio" value="d)">d)
+              <form id="answer-select">
+                <input type="radio" name="answer" value="a)">
+                <span>a)</span>
+                <br>
+                <input type="radio" name="answer" value="b)">
+                <span>b)</span><br>
+                <input type="radio" name="answer" value="c)">
+                <span>c)</span><br>  
+                <input type="radio" name="answer" value="d)">
+                <span></span>d)
                 <hr />
-                <input type="submit" value="Submit" class="button is-large is-fullwidth is-warning">
+                <button class="button is-large is-fullwidth is-warning">Submit</button>
               </form>
 
             </div>
@@ -65,7 +71,7 @@
     </div>
 </div>
   
-<script src="questions.js"></script>
-<script src="app.js"></script>
+<script src="assets/javascript/questions.js"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
 </html>
