@@ -48,15 +48,15 @@
               <span class="fas fa-exclamation fa-2x"></span>
               <strong>Answer:</strong> <br />
               <form id="answer-select">
-                <input type="radio" name="answer" value="a)">
-                <span>a)</span>
+                <input type="radio" id="radio1" name="answer" value="a">
+                a)<span id="answer1"></span>
                 <br> 
-                <input type="radio" name="answer" value="b)">
-                <span>b)</span><br>
-                <input type="radio" name="answer" value="c)">
-                <span>c)</span><br>  
-                <input type="radio" name="answer" value="d)">
-                <span></span>d)
+                <input type="radio" id="radio2" name="answer" value="b">
+                b)<span id="answer2"></span><br>
+                <input type="radio" id="radio3" name="answer" value="c">
+                c)<span id="answer3"></span><br>  
+                <input type="radio" id="radio4" name="answer" value="d">
+                d)<span id="answer4"></span>
                 <hr />
                 <button id="submit" class="button is-large is-fullwidth is-warning">Submit</button>
               </form>
@@ -105,6 +105,20 @@
     <footer class="modal-card-foot">
       <button id="continue2" class="button is-warning">Okay</button>
     </footer>
+  </div>
+</div>
+
+<!-- a third modal for game end -->
+<div id="modal3" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">The quiz is over.</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      You got <span id="modal-number-correct"></span> of 10 answers correct.<br>
+    </section>
   </div>
 </div>
 
