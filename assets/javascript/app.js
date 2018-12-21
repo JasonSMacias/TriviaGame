@@ -140,10 +140,10 @@ function NextQuestion() {
     else {
       questionsHTM.text(randomOrderQuestions[QAObject].clue);
       console.log("Question/answer object: "+QAObject);
-      answer1HTM.html(randomOrderQuestions[QAObject].answer);
-      answer2HTM.html(randomOrderQuestions[QAObject].wrongAnswer1);
-      answer3HTM.html(randomOrderQuestions[QAObject].wrongAnswer2);
-      answer4HTM.html(randomOrderQuestions[QAObject].wrongAnswer3);
+      answer2HTM.html(randomOrderQuestions[QAObject].answer);
+      answer3HTM.html(randomOrderQuestions[QAObject].wrongAnswer1);
+      answer4HTM.html(randomOrderQuestions[QAObject].wrongAnswer2);
+      answer1HTM.html(randomOrderQuestions[QAObject].wrongAnswer3);
       start();
     }
   }
