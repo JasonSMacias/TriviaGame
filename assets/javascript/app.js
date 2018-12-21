@@ -91,6 +91,7 @@ function count() {
     $("#modal2").addClass("is-active");
     $("#continue2").click(function(){
     $(".modal").removeClass("is-active");
+    $("input").prop('checked', false);
 
     lastQuestionWas = false;
     // reference to function to put up new question and start timer again
@@ -134,6 +135,7 @@ function NextQuestion() {
       stop();
       reset();
       gameEnd();
+      
     }
     else {
       questionsHTM.text(randomOrderQuestions[QAObject].clue);
@@ -179,6 +181,7 @@ $("#submit").click(function(){
   if ($("input[value='a']:checked").val()) {
     questionsCorrect++;
     lastQuestionWas = true;
+    $("input").prop('checked', false);
     stop();
     reset();
     NextQuestion();
@@ -191,6 +194,7 @@ $("#submit").click(function(){
     $("#modal2").addClass("is-active");
     $("#continue2").click(function(){
     $(".modal").removeClass("is-active");
+    $("input").prop('checked', false);
 
     lastQuestionWas = false;
     // reference to function to put up new question and start timer again
