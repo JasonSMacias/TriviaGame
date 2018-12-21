@@ -84,9 +84,10 @@ function count() {
 
   // display converted time on page
   $("#display").text(converted);
-  if (time==30){
+  if (time==3){
     stop();
     reset();
+    $("#modal-correct-answer").html(randomOrderQuestions[QAObject].answer);
     $("#modal2").addClass("is-active");
     $("#continue2").click(function(){
     $(".modal").removeClass("is-active");
@@ -178,17 +179,27 @@ $("#submit").click(function(){
   if ($("input[value='a']:checked").val()) {
     questionsCorrect++;
     lastQuestionWas = true;
-    alert("you got that correct");
     stop();
     reset();
     NextQuestion();
   }
   else {
-    lastQuestionWas = false;
-    alert("you got that wrong");
+
     stop();
     reset();
+    $("#modal-correct-answer").html(randomOrderQuestions[QAObject].answer);
+    $("#modal2").addClass("is-active");
+    $("#continue2").click(function(){
+    $(".modal").removeClass("is-active");
+
+    lastQuestionWas = false;
+    // reference to function to put up new question and start timer again
+    
     NextQuestion();
+    
+    });
+
+
   }
 });
   
