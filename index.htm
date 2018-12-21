@@ -58,19 +58,57 @@
                 <input type="radio" name="answer" value="d)">
                 <span></span>d)
                 <hr />
-                <button class="button is-large is-fullwidth is-warning">Submit</button>
+                <button id="submit" class="button is-large is-fullwidth is-warning">Submit</button>
               </form>
 
             </div>
           </div>
               
               <br />
-              <h2 id="timer" class="box title has-background-warning">Time left: <strong class="is-size-2">00:00</strong></h2>
+              <h2 id="timer" class="box title has-background-warning">Time: <strong id="display" class="is-size-2">00:00</strong></h2>
         </section>
       </section>
     </div>
 </div>
   
+<!-- note:  the bulma modal that follows is activated when "is-active" class is added to div with class "modal.  first modal for start of game-->
+
+<div id="modal1" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Get ready!</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      You will have thirty seconds to answer each of the questions in this science-fiction trivia quiz.  Press okay when you are ready to begin.
+    </section>
+    <footer class="modal-card-foot">
+      <button id="continue" class="button is-warning">Okay</button>
+    </footer>
+  </div>
+</div>
+
+<!-- a second modal for timeout -->
+<div id="modal2" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Time is up!</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      The correct answer was:
+      <span id="modal-correct-answer"></span><br>
+      Press okay to move on to the next question and start the timer again.
+    </section>
+    <footer class="modal-card-foot">
+      <button id="continue2" class="button is-warning">Okay</button>
+    </footer>
+  </div>
+</div>
+
+
 <script src="assets/javascript/questions.js"></script>
 <script src="assets/javascript/app.js"></script>
 </body>
