@@ -11,6 +11,10 @@ answer1HTM = $("#answer1");
 answer2HTM = $("#answer2");
 answer3HTM = $("#answer3");
 answer4HTM = $("#answer4");
+radio1HTM = $("#radio1");
+radio2HTM = $("#radio2");
+radio3HTM = $("#radio3");
+radio4HTM = $("#radio4");
 questionsCorrectHTM = $("#modal-number-correct");
 
 //setting up randomized order questions array
@@ -84,7 +88,7 @@ function count() {
 
   // display converted time on page
   $("#display").text(converted);
-  if (time==3){
+  if (time==30){
     stop();
     reset();
     $("#modal-correct-answer").html(randomOrderQuestions[QAObject].answer);
@@ -141,9 +145,13 @@ function NextQuestion() {
       questionsHTM.text(randomOrderQuestions[QAObject].clue);
       console.log("Question/answer object: "+QAObject);
       answer2HTM.html(randomOrderQuestions[QAObject].answer);
+      radio2HTM.val(true);
       answer3HTM.html(randomOrderQuestions[QAObject].wrongAnswer1);
+      radio3HTM.val(false);
       answer4HTM.html(randomOrderQuestions[QAObject].wrongAnswer2);
+      radio4HTM.val(false);
       answer1HTM.html(randomOrderQuestions[QAObject].wrongAnswer3);
+      radio1HTM.val(false);
       start();
     }
   }
@@ -155,12 +163,16 @@ function gameEnd() {
 }
 
   
-  // putting initial question into html
+  // putting initial question into html and set radio values to agree
   questionsHTM.text(randomOrderQuestions[QAObject].clue);
   answer1HTM.html(randomOrderQuestions[QAObject].answer);
+  radio1HTM.val(true);
   answer2HTM.html(randomOrderQuestions[QAObject].wrongAnswer1);
+  radio2HTM.val(false);
   answer3HTM.html(randomOrderQuestions[QAObject].wrongAnswer2);
+  radio3HTM.val(false);
   answer4HTM.html(randomOrderQuestions[QAObject].wrongAnswer3);
+  radio4HTM.val(false);
 
   // putting initial answers into html *******************
 
@@ -178,7 +190,7 @@ function gameEnd() {
 // Setting up event listener for submit button
 $("#submit").click(function(){
   event.preventDefault();
-  if ($("input[value='a']:checked").val()) {
+  if ($("input[value='true']:checked").val()) {
     questionsCorrect++;
     lastQuestionWas = true;
     $("input").prop('checked', false);
