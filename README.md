@@ -1,1 +1,2 @@
 # TriviaGame
+This is a quick, timed quiz on science fiction.  Style is done with *Bulma,* questions and correct answers are from [jService](http://jservice.io/), which pulls their questions from [J! Archive](http://j-archive.com/).  Available at https://jasonsmacias.github.io/TriviaGame/
