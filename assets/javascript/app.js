@@ -54,8 +54,25 @@ var intervalId;
 var clockRunning = false;
 var time = 0;
 
+// variable to keep track of whether current QAObject value is odd or even
+QAObjectIsOdd = true;
+
 
 // functions
+
+// function to determine whether QAObject variable is currently odd or even and record it
+
+function oddEven(number) {
+
+  if (number % 2 == 0) {
+    QAObjectIsOdd = false;
+    }
+  else {
+    QAObjectIsOdd = true;
+  }
+}
+
+
 function reset() {
 
   time = 0;
@@ -66,7 +83,7 @@ function reset() {
 }
 function start() {
 
-  // DONE: Use setInterval to start the count here and set the clock to running.
+  // Use setInterval to start the count here and set the clock to running.
   if (!clockRunning) {
     intervalId = setInterval(count, 1000);
     clockRunning = true;
@@ -74,7 +91,7 @@ function start() {
 }
 function stop() {
 
-  // DONE: Use clearInterval to stop the count here and set the clock to not be running.
+  // Use clearInterval to stop the count here and set the clock to not be running.
   clearInterval(intervalId);
   clockRunning = false;
 }
@@ -135,25 +152,45 @@ reset();
 function NextQuestion() {
   if (clockRunning===false){
     QAObject++;
+    oddEven(QAObject);
+    console.log("QAObject odd: "+QAObjectIsOdd);
+    // ending quiz if after last question
     if (QAObject>9){
       stop();
       reset();
       gameEnd();
-      
+      return(false);
     }
-    else {
-      questionsHTM.text(randomOrderQuestions[QAObject].clue);
-      console.log("Question/answer object: "+QAObject);
-      answer2HTM.html(randomOrderQuestions[QAObject].answer);
-      radio2HTM.val(true);
-      answer3HTM.html(randomOrderQuestions[QAObject].wrongAnswer1);
-      radio3HTM.val(false);
-      answer4HTM.html(randomOrderQuestions[QAObject].wrongAnswer2);
-      radio4HTM.val(false);
-      answer1HTM.html(randomOrderQuestions[QAObject].wrongAnswer3);
-      radio1HTM.val(false);
-      start();
-    }
+      // setting up two orderings of answers, that each differ from the way the answers are ordered on the initial question, depending on whether number of current object number is odd or even, to give some variety to where correct answer appears on the list.  Then starting.
+      if (QAObjectIsOdd == true) {
+        questionsHTM.text(randomOrderQuestions[QAObject].clue);
+        console.log("Question/answer object: "+QAObject);
+        answer2HTM.html(randomOrderQuestions[QAObject].answer);
+        radio2HTM.val(true);
+        answer3HTM.html(randomOrderQuestions[QAObject].wrongAnswer1);
+        radio3HTM.val(false);
+        answer4HTM.html(randomOrderQuestions[QAObject].wrongAnswer2);
+        radio4HTM.val(false);
+        answer1HTM.html(randomOrderQuestions[QAObject].wrongAnswer3);
+        radio1HTM.val(false);
+        start();
+      }
+
+      if (QAObjectIsOdd == false) {
+        questionsHTM.text(randomOrderQuestions[QAObject].clue);
+        console.log("Question/answer object: "+QAObject);
+        answer4HTM.html(randomOrderQuestions[QAObject].answer);
+        radio4HTM.val(true);
+        answer1HTM.html(randomOrderQuestions[QAObject].wrongAnswer1);
+        radio1HTM.val(false);
+        answer2HTM.html(randomOrderQuestions[QAObject].wrongAnswer2);
+        radio2HTM.val(false);
+        answer3HTM.html(randomOrderQuestions[QAObject].wrongAnswer3);
+        radio3HTM.val(false);
+        start();
+      }
+
+    
   }
 }
 
